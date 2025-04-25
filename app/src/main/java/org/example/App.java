@@ -4,11 +4,32 @@
 package org.example;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Squirrel cheeks = new Squirrel("Cheeks");
+        TreeNode nodeOne = new TreeNode(cheeks);
+
+        Squirrel squeaks = new Squirrel("Squeaks");
+        TreeNode nodeTwo = new TreeNode(squeaks);
+
+        Squirrel fluffybutt = new Squirrel("Mr. Fluffy Butt");
+        TreeNode nodeThree = new TreeNode(fluffybutt);
+
+        Squirrel hi = new Squirrel("hi");
+        TreeNode nodeFour = new TreeNode(hi);
+
+        Squirrel bye = new Squirrel("bye");
+        TreeNode nodeFive = new TreeNode(bye);
+
+        Squirrel chi = new Squirrel("chi");
+        TreeNode nodeSix = new TreeNode(chi);
+
+        nodeOne.setLeft(nodeTwo);
+        nodeOne.setRight(nodeThree);
+        nodeOne.left().setLeft(nodeFour);
+        nodeOne.left().setRight(nodeFive);
+        nodeOne.right().setLeft(nodeSix);
+
+        nodeOne.preOrderTraversal(node ->
+                System.out.println(node.getSquirrel().getName()));
     }
 }
